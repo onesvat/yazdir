@@ -1,0 +1,518 @@
+# Turkish translation for Yazdır.
+# Copyright (C) 2026 Onur Neşvat
+# This file is distributed under the same license as the yazdir package.
+msgid ""
+msgstr ""
+"Project-Id-Version: yazdir 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-11 15:25+0300\n"
+"PO-Revision-Date: 2026-10-11 15:00+0300\n"
+"Last-Translator: Onur Neşvat\n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/yazdir/app.py:28
+msgid "Normal"
+msgstr "Normal"
+
+#: src/yazdir/app.py:28
+msgid "Draft (less toner)"
+msgstr "Taslak (az toner)"
+
+#: src/yazdir/app.py:29
+msgid "All pages"
+msgstr "Tüm sayfalar"
+
+#: src/yazdir/app.py:29
+msgid "Odd pages only"
+msgstr "Yalnızca tek sayfalar"
+
+#: src/yazdir/app.py:29
+msgid "Even pages only"
+msgstr "Yalnızca çift sayfalar"
+
+#: src/yazdir/app.py:30
+msgid "One-sided"
+msgstr "Tek yüz"
+
+#: src/yazdir/app.py:30
+msgid "Two-sided (manual)"
+msgstr "Arkalı önlü (elle)"
+
+#: src/yazdir/app.py:30
+msgid "Booklet"
+msgstr "Kitapçık"
+
+#: src/yazdir/app.py:31
+msgid "Like a book (sideways)"
+msgstr "Kitap gibi (yana)"
+
+#: src/yazdir/app.py:31
+msgid "Like a calendar (upwards)"
+msgstr "Takvim gibi (yukarı)"
+
+#: src/yazdir/app.py:32 src/yazdir/app.py:337
+#, python-brace-format
+msgid "{n} pages"
+msgstr "{n} sayfa"
+
+#: src/yazdir/app.py:32 src/yazdir/app.py:337
+msgid "1 page"
+msgstr "1 sayfa"
+
+#: src/yazdir/app.py:33
+msgid "Left to right"
+msgstr "Soldan sağa"
+
+#: src/yazdir/app.py:33
+msgid "Top to bottom"
+msgstr "Yukarıdan aşağı"
+
+#: src/yazdir/app.py:34
+msgid "Fit to paper"
+msgstr "Kâğıda sığdır"
+
+#: src/yazdir/app.py:34
+msgid "Actual size (100%)"
+msgstr "Gerçek boyut (%100)"
+
+#: src/yazdir/app.py:34
+msgid "Custom percentage"
+msgstr "Özel yüzde"
+
+#: src/yazdir/app.py:35
+msgid "Automatic"
+msgstr "Otomatik"
+
+#: src/yazdir/app.py:35
+msgid "Don't rotate"
+msgstr "Döndürme"
+
+#: src/yazdir/app.py:35
+msgid "Rotate 90°"
+msgstr "90° döndür"
+
+#: src/yazdir/app.py:36
+msgid "None"
+msgstr "Yok"
+
+#: src/yazdir/app.py:36
+msgid "Sharp black and white"
+msgstr "Keskin siyah-beyaz"
+
+#: src/yazdir/app.py:36
+msgid "AI + sharp (best, slow)"
+msgstr "AI + keskin (en iyi, yavaş)"
+
+#: src/yazdir/app.py:37
+msgid "System default"
+msgstr "Sistem varsayılanı"
+
+#: src/yazdir/app.py:78
+msgid "Print"
+msgstr "Yazdır"
+
+#: src/yazdir/app.py:80
+msgid "Preview"
+msgstr "Önizleme"
+
+#: src/yazdir/app.py:82
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: src/yazdir/app.py:83
+msgid "Restore default settings (printer, files and duplex calibration are kept)"
+msgstr "Varsayılan ayarlara dön (yazıcı, dosyalar ve elle arkalı önlü ayarı korunur)"
+
+#: src/yazdir/app.py:85
+msgid "Save the laid-out PDF"
+msgstr "Düzenlenmiş PDF olarak kaydet"
+
+#: src/yazdir/app.py:89
+msgid "About Yazdır"
+msgstr "Yazdır hakkında"
+
+#: src/yazdir/app.py:90
+msgid "Main menu"
+msgstr "Ana menü"
+
+#: src/yazdir/app.py:104
+msgid "Files"
+msgstr "Dosyalar"
+
+#: src/yazdir/app.py:104
+msgid "PDFs or images; you can drag and drop them onto the window."
+msgstr "PDF veya resim; pencereye sürükleyip bırakabilirsiniz."
+
+#: src/yazdir/app.py:105 src/yazdir/app.py:300
+msgid "Add files"
+msgstr "Dosya ekle"
+
+#: src/yazdir/app.py:108
+msgid "No files yet"
+msgstr "Henüz dosya yok"
+
+#: src/yazdir/app.py:113
+msgid "Printing"
+msgstr "Baskı"
+
+#: src/yazdir/app.py:116
+msgid "(no printer found)"
+msgstr "(yazıcı bulunamadı)"
+
+#: src/yazdir/app.py:117
+msgid "Printer"
+msgstr "Yazıcı"
+
+#: src/yazdir/app.py:121
+msgid "Print type"
+msgstr "Baskı türü"
+
+#: src/yazdir/app.py:122
+msgid "Flip"
+msgstr "Çevirme"
+
+#: src/yazdir/app.py:122
+msgid "How you turn the sheet to read the back"
+msgstr "Sayfayı okurken arka yüze nasıl geçilecek"
+
+#: src/yazdir/app.py:123
+msgid "Pages per sheet"
+msgstr "Kâğıt başına sayfa"
+
+#: src/yazdir/app.py:124
+msgid "Copies"
+msgstr "Kopya sayısı"
+
+#: src/yazdir/app.py:129
+msgid "Advanced settings"
+msgstr "Gelişmiş ayarlar"
+
+#: src/yazdir/app.py:139
+msgid "Margin (mm)"
+msgstr "Kenar boşluğu (mm)"
+
+#: src/yazdir/app.py:139
+msgid "Most printers can't print the outer ~4 mm"
+msgstr "Çoğu yazıcı kenardaki ~4 mm'ye basamaz"
+
+#: src/yazdir/app.py:140
+msgid "Paper and quality"
+msgstr "Kâğıt ve kalite"
+
+#: src/yazdir/app.py:141
+msgid "Paper size"
+msgstr "Kâğıt boyutu"
+
+#: src/yazdir/app.py:141
+msgid "Print quality"
+msgstr "Baskı kalitesi"
+
+#: src/yazdir/app.py:143
+msgid "Page range (empty = all, e.g. 1-3,5,8-)"
+msgstr "Sayfa aralığı (boş = hepsi, örn. 1-3,5,8-)"
+
+#: src/yazdir/app.py:145
+msgid "Print in reverse order"
+msgstr "Ters sırada bas"
+
+#: src/yazdir/app.py:145
+msgid "One-sided printing only"
+msgstr "Yalnızca tek yüz baskıda"
+
+#: src/yazdir/app.py:147
+msgid "Collate"
+msgstr "Harmanla"
+
+#: src/yazdir/app.py:147
+msgid "Print as 1,2,3 – 1,2,3"
+msgstr "1,2,3 – 1,2,3 sırasıyla bas"
+
+#: src/yazdir/app.py:148
+msgid "Pages and copies"
+msgstr "Sayfalar ve kopyalar"
+
+#: src/yazdir/app.py:149
+msgid "Page subset"
+msgstr "Sayfa alt kümesi"
+
+#: src/yazdir/app.py:151
+msgid "Border around pages"
+msgstr "Sayfaların etrafına çerçeve"
+
+#: src/yazdir/app.py:152
+msgid "Custom scale (%)"
+msgstr "Özel ölçek (%)"
+
+#: src/yazdir/app.py:153
+msgid "Layout and scale"
+msgstr "Yerleşim ve ölçek"
+
+#: src/yazdir/app.py:154
+msgid "Page order"
+msgstr "Sayfa sıralaması"
+
+#: src/yazdir/app.py:156
+msgid "Scale"
+msgstr "Ölçek"
+
+#: src/yazdir/app.py:156
+msgid "Applies to one page per sheet"
+msgstr "Kâğıt başına 1 sayfada geçerli"
+
+#: src/yazdir/app.py:158
+msgid "Page rotation"
+msgstr "Sayfa döndürme"
+
+#: src/yazdir/app.py:158
+msgid "Automatic turns landscape pages to fit the sheet"
+msgstr "Otomatik: yatay sayfayı kâğıda göre çevirir"
+
+#: src/yazdir/app.py:160
+msgid "Images"
+msgstr "Resimler"
+
+#: src/yazdir/app.py:161
+msgid "Quality enhancement"
+msgstr "Kalite iyileştirme"
+
+#: src/yazdir/app.py:161
+msgid "Images only; sharp: 600 DPI black and white for drawings"
+msgstr "Yalnızca resimlere; keskin: çizimler için 600 DPI siyah-beyaz"
+
+#: src/yazdir/app.py:163
+msgid "Reverse order in the second pass"
+msgstr "2. turda sırayı ters çevir"
+
+#: src/yazdir/app.py:164
+msgid "Change this if backs land on the wrong sheets"
+msgstr "Arka yüzler yanlış kâğıda geliyorsa değiştirin"
+
+#: src/yazdir/app.py:166
+msgid "Rotate backs 180°"
+msgstr "Arka yüzü 180° döndür"
+
+#: src/yazdir/app.py:166
+msgid "Toggle this if backs come out upside down"
+msgstr "Arka yüz baş aşağı çıkıyorsa değiştirin"
+
+#: src/yazdir/app.py:168
+msgid "Extra note (shown in the duplex dialog)"
+msgstr "Ek not (arka yüz penceresinde gösterilir)"
+
+#: src/yazdir/app.py:170
+msgid "Print test pages (2 sheets)"
+msgstr "Test sayfası bas (2 kâğıt)"
+
+#: src/yazdir/app.py:172
+msgid "Manual duplex calibration"
+msgstr "Elle arkalı önlü ayarı"
+
+#: src/yazdir/app.py:173
+msgid "Tuned for your printer; not affected by Reset"
+msgstr "Yazıcınıza göre ayarlı; sıfırlamadan etkilenmez"
+
+#: src/yazdir/app.py:174
+msgid "Language"
+msgstr "Dil"
+
+#: src/yazdir/app.py:174
+msgid "Takes effect after restarting the app"
+msgstr "Uygulama yeniden başlatılınca geçerli olur"
+
+#: src/yazdir/app.py:176
+msgid "Restart Yazdır to change the language."
+msgstr "Dilin değişmesi için Yazdır'ı yeniden başlatın."
+
+#: src/yazdir/app.py:177
+msgid "Application"
+msgstr "Uygulama"
+
+#: src/yazdir/app.py:227
+#, python-brace-format
+msgid "margin {mm} mm"
+msgstr "kenar {mm} mm"
+
+#: src/yazdir/app.py:228
+#, python-brace-format
+msgid "pages {range}"
+msgstr "sayfalar {range}"
+
+#: src/yazdir/app.py:229
+msgid "reverse order"
+msgstr "ters sıra"
+
+#: src/yazdir/app.py:230
+msgid "not collated"
+msgstr "harmanlama kapalı"
+
+#: src/yazdir/app.py:231
+msgid "border"
+msgstr "çerçeve"
+
+#: src/yazdir/app.py:242
+#, python-brace-format
+msgid "Changed: {list}"
+msgstr "Değişti: {list}"
+
+#: src/yazdir/app.py:242
+msgid "Default"
+msgstr "Varsayılan"
+
+#: src/yazdir/app.py:269
+msgid "Settings restored to defaults (duplex calibration kept)."
+msgstr "Ayarlar varsayılana döndü (elle arkalı önlü ayarı korundu)."
+
+#: src/yazdir/app.py:275
+msgid "Error"
+msgstr "Hata"
+
+#: src/yazdir/app.py:276
+msgid "OK"
+msgstr "Tamam"
+
+#: src/yazdir/app.py:295
+msgid "PDFs and images"
+msgstr "PDF ve resimler"
+
+#: src/yazdir/app.py:331
+#, python-brace-format
+msgid "Could not open {name}: {error}"
+msgstr "{name} açılamadı: {error}"
+
+#: src/yazdir/app.py:339
+msgid "Remove"
+msgstr "Kaldır"
+
+#: src/yazdir/app.py:363
+msgid "Add a file first."
+msgstr "Önce dosya ekleyin."
+
+#: src/yazdir/app.py:367
+msgid "No usable printer."
+msgstr "Kullanılabilir yazıcı yok."
+
+#: src/yazdir/app.py:371
+msgid "Save as PDF"
+msgstr "PDF olarak kaydet"
+
+#: src/yazdir/app.py:371
+msgid "laid-out.pdf"
+msgstr "duzenlenmis.pdf"
+
+#: src/yazdir/app.py:395
+msgid "↑ TOP ↑"
+msgstr "↑ ÜST ↑"
+
+#: src/yazdir/app.py:415
+#, python-brace-format
+msgid "Saved: {name}"
+msgstr "Kaydedildi: {name}"
+
+#: src/yazdir/app.py:428
+msgid "Sent to the printer."
+msgstr "Yazıcıya gönderildi."
+
+#: src/yazdir/app.py:435
+#, python-brace-format
+msgid ""
+"Could not send to the printer:\n"
+"{error}"
+msgstr ""
+"Yazıcıya gönderilemedi:\n"
+"{error}"
+
+#: src/yazdir/app.py:445
+#, python-brace-format
+msgid "<b>1.</b> Take <b>all {n} sheets</b> from the output tray without changing their order."
+msgstr "<b>1.</b> Çıktı tepsisindeki <b>{n} kâğıdın tamamını</b> sırasını bozmadan alın."
+
+#: src/yazdir/app.py:446
+msgid "<b>2.</b> Put them in the front input tray <b>without flipping or rotating</b>: edge <b>B</b> towards the printer, blank sides up."
+msgstr "<b>2.</b> <b>Ters çevirmeden, döndürmeden</b> öndeki besleme tepsisine koyun: <b>B</b> kenarı yazıcıya doğru, boş yüzler üstte."
+
+#: src/yazdir/app.py:448
+msgid "<b>3.</b> Press <b>Continue</b>."
+msgstr "<b>3.</b> <b>Devam</b>'a basın."
+
+#: src/yazdir/app.py:451
+msgid "The top sheet has an empty back and will pass through blank. Don't remove it; it keeps the other sheets in order."
+msgstr "En üstteki kâğıdın arkası boş kalacak ve yazıcıdan boş geçecek. Çıkarmayın; diğer kâğıtların sırası bozulmasın diye gerekli."
+
+#: src/yazdir/app.py:456
+msgid "Manual duplex"
+msgstr "Elle arkalı önlü"
+
+#: src/yazdir/app.py:461
+#, python-brace-format
+msgid "Printing the fronts ({n} sheets)…"
+msgstr "Ön yüzler basılıyor ({n} kâğıt)…"
+
+#: src/yazdir/app.py:462
+msgid "When it finishes you will reload the paper as shown below."
+msgstr "Baskı bitince kâğıtları aşağıdaki gibi yeniden yerleştireceksiniz."
+
+#: src/yazdir/app.py:469
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/yazdir/app.py:470
+msgid "Continue"
+msgstr "Devam"
+
+#: src/yazdir/app.py:482
+msgid "Reload the paper for the backs"
+msgstr "Arka yüz için kâğıtları yerleştirin"
+
+#: src/yazdir/app.py:496
+msgid "Backs sent to the printer."
+msgstr "Arka yüzler yazıcıya gönderildi."
+
+#: src/yazdir/app.py:498
+msgid "Backs cancelled."
+msgstr "Arka yüzler iptal edildi."
+
+#: src/yazdir/engine.py:57
+#, python-brace-format
+msgid ""
+"{tool} failed:\n"
+"{output}"
+msgstr ""
+"{tool} hata verdi:\n"
+"{output}"
+
+#: src/yazdir/engine.py:67
+#, python-brace-format
+msgid ""
+"Real-ESRGAN not found: {path}\n"
+"Run ./install.sh --with-ai"
+msgstr ""
+"Real-ESRGAN bulunamadı: {path}\n"
+"./install.sh --with-ai komutunu çalıştırın"
+
+#: src/yazdir/engine.py:68
+#, python-brace-format
+msgid "AI upscaling: {name}"
+msgstr "AI ile büyütülüyor: {name}"
+
+#: src/yazdir/engine.py:75
+#, python-brace-format
+msgid "Converting to 600 DPI black and white: {name}"
+msgstr "600 DPI siyah-beyaza çevriliyor: {name}"
+
+#: src/yazdir/engine.py:117
+#, python-brace-format
+msgid "Invalid page range: “{part}”"
+msgstr "Geçersiz sayfa aralığı: “{part}”"
+
+#: src/yazdir/engine.py:119
+#, python-brace-format
+msgid "Out of range: “{part}” (document has {n} pages)"
+msgstr "Aralık dışında: “{part}” (belgede {n} sayfa var)"
+
+#: src/yazdir/engine.py:212
+msgid "No pages left in the selection."
+msgstr "Seçimde hiç sayfa kalmadı."

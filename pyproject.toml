@@ -1,0 +1,43 @@
+[project]
+name = "yazdir"
+version = "1.0.0"
+description = "N-up, booklet and guided manual duplex printing for printers without a duplex unit (GTK 4)"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Onur Neşvat" }]
+requires-python = ">=3.10"
+dependencies = ["pypdf>=4"]
+keywords = ["printing", "duplex", "booklet", "n-up", "cups", "gtk4", "libadwaita"]
+classifiers = [
+    "Environment :: X11 Applications :: GTK",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Printing",
+    "Natural Language :: English",
+    "Natural Language :: Turkish",
+]
+
+[project.urls]
+Homepage = "https://github.com/onesvat/yazdir"
+Issues = "https://github.com/onesvat/yazdir/issues"
+
+[project.gui-scripts]
+yazdir = "yazdir.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/yazdir"]
+
+[tool.ruff]
+line-length = 150
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "RUF", "PLW1510"]
+ignore = ["RUF001", "RUF002", "RUF003"]  # typographic quotes and arrows in user-facing text are intentional
