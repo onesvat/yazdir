@@ -25,9 +25,9 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/en/main.png" width="400" alt="Main window">
+  <img src="docs/screenshots/en/main.png" width="440" alt="Main window">
   &nbsp;
-  <img src="docs/screenshots/en/duplex-reload.png" width="400" alt="Reloading the paper for the backs">
+  <img src="docs/screenshots/en/duplex-reload.png" width="440" alt="Reloading the paper for the backs">
 </p>
 
 ---

@@ -25,9 +25,9 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/tr/main.png" width="400" alt="Ana pencere">
+  <img src="docs/screenshots/tr/main.png" width="440" alt="Ana pencere">
   &nbsp;
-  <img src="docs/screenshots/tr/duplex-reload.png" width="400" alt="Arka yüzler için kâğıtları yerleştirme">
+  <img src="docs/screenshots/tr/duplex-reload.png" width="440" alt="Arka yüzler için kâğıtları yerleştirme">
 </p>
 
 ---

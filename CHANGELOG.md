@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 — 2026-10-11
+
+- Screenshots retaken at the default window size, with rounded corners and shadow, for app stores.
+
 ## 1.1.0 — 2026-10-11
 
 Works with any printer that can't print on both sides by itself.

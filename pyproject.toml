@@ -1,6 +1,6 @@
 [project]
 name = "yazdir"
-version = "1.1.0"
+version = "1.1.1"
 description = "Booklets, N-up and guided two-sided printing for any printer without automatic duplex (GTK 4)"
 readme = "README.md"
 license = "MIT"

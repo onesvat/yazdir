@@ -50,19 +50,19 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.0/docs/screenshots/en/main.png</image>
+      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.1/docs/screenshots/en/main.png</image>
       <caption>Choose two-sided, booklet or N-up printing</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.0/docs/screenshots/en/duplex-reload.png</image>
+      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.1/docs/screenshots/en/duplex-reload.png</image>
       <caption>Step-by-step help when it's time to reload the paper</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.0/docs/screenshots/en/calibration-3.png</image>
+      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.1/docs/screenshots/en/calibration-3.png</image>
       <caption>A two-sheet calibration adapts to any printer</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.0/docs/screenshots/en/advanced.png</image>
+      <image>https://raw.githubusercontent.com/onesvat/yazdir/v1.1.1/docs/screenshots/en/advanced.png</image>
       <caption>Advanced settings show what differs from the defaults</caption>
     </screenshot>
   </screenshots>
@@ -98,6 +98,11 @@
   </keywords>
 
   <releases>
+    <release version="1.1.1" date="2026-10-11">
+      <description>
+        <p>New screenshots at the default window size.</p>
+      </description>
+    </release>
     <release version="1.1.0" date="2026-10-11">
       <description>
         <p>Works with any printer that can't print on both sides.</p>
