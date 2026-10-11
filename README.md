@@ -103,9 +103,22 @@ visible in the same section if you ever want to adjust them by hand.
 
 ## Installation
 
-### Flatpak
+### Flatpak (recommended)
 
-Build the Flatpak yourself and install it for your user:
+Download `yazdir-<version>-x86_64.flatpak` from the [latest release](https://github.com/onesvat/yazdir/releases/latest)
+and open it with GNOME Software or KDE Discover, or install it from a terminal:
+
+```sh
+flatpak install --user yazdir-1.1.1-x86_64.flatpak
+flatpak run io.github.onesvat.Yazdir
+```
+
+The file is under 2 MB; GTK and libadwaita come from the GNOME runtime, which is downloaded from Flathub the first
+time if you don't have it yet. Flatpak itself comes preinstalled on Fedora, Linux Mint, Pop!_OS and openSUSE; on
+Ubuntu run `sudo apt install flatpak` and add Flathub ([instructions](https://flathub.org/setup)). To update, install
+the file of a newer release the same way.
+
+You can also build the Flatpak yourself:
 
 ```sh
 flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//51
@@ -219,6 +232,7 @@ just examples      # rebuild the example PDFs (needs typst)
 just pot           # update the translation template and merge into tr.po
 just screenshots   # re-render the README screenshots without printing
 just flatpak       # build and install the Flatpak
+just bundle        # build the single-file .flatpak for a release
 just validate      # desktop entry and AppStream checks
 ```
 

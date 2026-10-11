@@ -40,6 +40,11 @@ screenshots:
 flatpak:
     flatpak run org.flatpak.Builder --user --install --force-clean --install-deps-from=flathub build-dir build-aux/flatpak/io.github.onesvat.Yazdir.yml
 
+# Build a single-file Flatpak bundle for a GitHub release (runtime comes from Flathub on install)
+bundle:
+    flatpak run org.flatpak.Builder --user --force-clean --install-deps-from=flathub --repo=repo build-dir build-aux/flatpak/io.github.onesvat.Yazdir.yml
+    flatpak build-bundle repo "yazdir-$(.venv/bin/python -c 'import sys; sys.path.insert(0, "src"); import yazdir; print(yazdir.__version__)')-x86_64.flatpak" io.github.onesvat.Yazdir --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo
+
 # Validate the desktop entry and AppStream metadata
 validate:
     desktop-file-validate data/io.github.onesvat.Yazdir.desktop
