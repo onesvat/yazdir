@@ -105,7 +105,7 @@ bölümde görünür kalır; isterseniz elle değiştirebilirsiniz.
 
 ### Flatpak
 
-Yazdır [Flathub](https://flathub.org) için hazırlanıyor. Orada yayınlanana kadar Flatpak paketini kendiniz derleyebilirsiniz:
+Flatpak paketini kendiniz derleyip kullanıcınıza kurabilirsiniz:
 
 ```sh
 flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//51
@@ -218,7 +218,6 @@ just examples      # örnek PDF'leri yeniden üret (typst gerekir)
 just pot           # çeviri şablonunu güncelle ve tr.po ile birleştir
 just screenshots   # README ekran görüntülerini baskı yapmadan yeniden üret
 just flatpak       # Flatpak paketini derle ve kur
-just flatpak-lint  # Flathub denetimini çalıştır
 just validate      # masaüstü kaydı ve AppStream denetimi
 ```
 

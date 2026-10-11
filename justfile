@@ -40,15 +40,6 @@ screenshots:
 flatpak:
     flatpak run org.flatpak.Builder --user --install --force-clean --install-deps-from=flathub build-dir build-aux/flatpak/io.github.onesvat.Yazdir.yml
 
-# Build the Flathub manifest (tagged release) like Flathub does and run its linter on the manifest and the repo.
-# Locally the repo check always reports appstream-remote-icon-not-mirrored and appstream-external-screenshot-url,
-# because the media only reaches dl.flathub.org/media after Flathub publishes the build.
-flatpak-lint:
-    flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest build-aux/flathub/io.github.onesvat.Yazdir.yml
-    flatpak run org.flatpak.Builder --user --force-clean --sandbox --install-deps-from=flathub \
-        --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo build-dir build-aux/flathub/io.github.onesvat.Yazdir.yml
-    flatpak run --command=flatpak-builder-lint org.flatpak.Builder repo repo
-
 # Validate the desktop entry and AppStream metadata
 validate:
     desktop-file-validate data/io.github.onesvat.Yazdir.desktop

@@ -105,8 +105,7 @@ visible in the same section if you ever want to adjust them by hand.
 
 ### Flatpak
 
-Yazdır is being prepared for [Flathub](https://flathub.org). Until it is listed there you can build the Flatpak
-yourself:
+Build the Flatpak yourself and install it for your user:
 
 ```sh
 flatpak install --user flathub org.flatpak.Builder org.gnome.Sdk//51
@@ -220,7 +219,6 @@ just examples      # rebuild the example PDFs (needs typst)
 just pot           # update the translation template and merge into tr.po
 just screenshots   # re-render the README screenshots without printing
 just flatpak       # build and install the Flatpak
-just flatpak-lint  # run Flathub's linter
 just validate      # desktop entry and AppStream checks
 ```
 
