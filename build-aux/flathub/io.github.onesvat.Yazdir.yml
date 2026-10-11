@@ -68,8 +68,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/onesvat/yazdir.git
-        tag: v1.1.0
-        commit: 6bedba9e7882be02e42448c951593a488ff98157
+        tag: v1.1.1
+        commit: a73443e1441db2a11a9287f816395676aa52036f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
