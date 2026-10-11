@@ -7,3 +7,7 @@ dist/
 build/
 *.mo
 examples/src/*.pdf
+.flatpak-builder/
+build-dir/
+repo/
+*.flatpak

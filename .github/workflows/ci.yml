@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Install
-        run: pip install pypdf pytest ruff
+        run: pip install pypdf pillow pytest ruff
       - name: Lint
         run: ruff check src tests tools
       - name: Test

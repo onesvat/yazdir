@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: yazdir\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 15:25+0300\n"
+"POT-Creation-Date: 2026-10-11 15:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,499 +17,617 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/yazdir/app.py:28
+#: src/yazdir/app.py:24
+msgid "None"
+msgstr ""
+
+#: src/yazdir/app.py:24
+msgid "Sharp black and white"
+msgstr ""
+
+#: src/yazdir/app.py:26
+msgid "AI + sharp (best, slow)"
+msgstr ""
+
+#: src/yazdir/app.py:29
 msgid "Normal"
 msgstr ""
 
-#: src/yazdir/app.py:28
+#: src/yazdir/app.py:29
 msgid "Draft (less toner)"
 msgstr ""
 
-#: src/yazdir/app.py:29
+#: src/yazdir/app.py:30
 msgid "All pages"
 msgstr ""
 
-#: src/yazdir/app.py:29
+#: src/yazdir/app.py:30
 msgid "Odd pages only"
 msgstr ""
 
-#: src/yazdir/app.py:29
+#: src/yazdir/app.py:30
 msgid "Even pages only"
 msgstr ""
 
-#: src/yazdir/app.py:30
+#: src/yazdir/app.py:31
 msgid "One-sided"
 msgstr ""
 
-#: src/yazdir/app.py:30
+#: src/yazdir/app.py:31
 msgid "Two-sided (manual)"
 msgstr ""
 
-#: src/yazdir/app.py:30
+#: src/yazdir/app.py:31
 msgid "Booklet"
 msgstr ""
 
-#: src/yazdir/app.py:31
+#: src/yazdir/app.py:32
 msgid "Like a book (sideways)"
 msgstr ""
 
-#: src/yazdir/app.py:31
+#: src/yazdir/app.py:32
 msgid "Like a calendar (upwards)"
 msgstr ""
 
-#: src/yazdir/app.py:32 src/yazdir/app.py:337
+#: src/yazdir/app.py:33 src/yazdir/app.py:365
 #, python-brace-format
 msgid "{n} pages"
 msgstr ""
 
-#: src/yazdir/app.py:32 src/yazdir/app.py:337
+#: src/yazdir/app.py:33 src/yazdir/app.py:365
 msgid "1 page"
 msgstr ""
 
-#: src/yazdir/app.py:33
+#: src/yazdir/app.py:34
 msgid "Left to right"
 msgstr ""
 
-#: src/yazdir/app.py:33
+#: src/yazdir/app.py:34
 msgid "Top to bottom"
 msgstr ""
 
-#: src/yazdir/app.py:34
+#: src/yazdir/app.py:35
 msgid "Fit to paper"
 msgstr ""
 
-#: src/yazdir/app.py:34
+#: src/yazdir/app.py:35
 msgid "Actual size (100%)"
 msgstr ""
 
-#: src/yazdir/app.py:34
+#: src/yazdir/app.py:35
 msgid "Custom percentage"
 msgstr ""
 
-#: src/yazdir/app.py:35
+#: src/yazdir/app.py:36
 msgid "Automatic"
 msgstr ""
 
-#: src/yazdir/app.py:35
+#: src/yazdir/app.py:36
 msgid "Don't rotate"
 msgstr ""
 
-#: src/yazdir/app.py:35
+#: src/yazdir/app.py:36
 msgid "Rotate 90°"
 msgstr ""
 
-#: src/yazdir/app.py:36
-msgid "None"
-msgstr ""
-
-#: src/yazdir/app.py:36
-msgid "Sharp black and white"
-msgstr ""
-
-#: src/yazdir/app.py:36
-msgid "AI + sharp (best, slow)"
-msgstr ""
-
-#: src/yazdir/app.py:37
+#: src/yazdir/app.py:38
 msgid "System default"
 msgstr ""
 
-#: src/yazdir/app.py:78
+#: src/yazdir/app.py:71
 msgid "Print"
 msgstr ""
 
-#: src/yazdir/app.py:80
+#: src/yazdir/app.py:73
 msgid "Preview"
 msgstr ""
 
-#: src/yazdir/app.py:82
+#: src/yazdir/app.py:75
 msgid "Reset"
 msgstr ""
 
-#: src/yazdir/app.py:83
+#: src/yazdir/app.py:76
 msgid "Restore default settings (printer, files and duplex calibration are kept)"
 msgstr ""
 
-#: src/yazdir/app.py:85
+#: src/yazdir/app.py:78
 msgid "Save the laid-out PDF"
 msgstr ""
 
-#: src/yazdir/app.py:89
+#: src/yazdir/app.py:82
 msgid "About Yazdır"
 msgstr ""
 
-#: src/yazdir/app.py:90
+#: src/yazdir/app.py:83
 msgid "Main menu"
 msgstr ""
 
-#: src/yazdir/app.py:104
+#: src/yazdir/app.py:97
 msgid "Files"
 msgstr ""
 
-#: src/yazdir/app.py:104
+#: src/yazdir/app.py:97
 msgid "PDFs or images; you can drag and drop them onto the window."
 msgstr ""
 
-#: src/yazdir/app.py:105 src/yazdir/app.py:300
+#: src/yazdir/app.py:98 src/yazdir/app.py:328
 msgid "Add files"
 msgstr ""
 
-#: src/yazdir/app.py:108
+#: src/yazdir/app.py:101
 msgid "No files yet"
 msgstr ""
 
-#: src/yazdir/app.py:113
+#: src/yazdir/app.py:106
 msgid "Printing"
 msgstr ""
 
-#: src/yazdir/app.py:116
+#: src/yazdir/app.py:109
 msgid "(no printer found)"
 msgstr ""
 
-#: src/yazdir/app.py:117
+#: src/yazdir/app.py:110
 msgid "Printer"
 msgstr ""
 
-#: src/yazdir/app.py:121
+#: src/yazdir/app.py:114
 msgid "Print type"
 msgstr ""
 
-#: src/yazdir/app.py:122
+#: src/yazdir/app.py:115
 msgid "Flip"
 msgstr ""
 
-#: src/yazdir/app.py:122
+#: src/yazdir/app.py:115
 msgid "How you turn the sheet to read the back"
 msgstr ""
 
-#: src/yazdir/app.py:123
+#: src/yazdir/app.py:116
 msgid "Pages per sheet"
 msgstr ""
 
-#: src/yazdir/app.py:124
+#: src/yazdir/app.py:117
 msgid "Copies"
 msgstr ""
 
-#: src/yazdir/app.py:129
+#: src/yazdir/app.py:122
 msgid "Advanced settings"
 msgstr ""
 
-#: src/yazdir/app.py:139
+#: src/yazdir/app.py:133
 msgid "Margin (mm)"
 msgstr ""
 
-#: src/yazdir/app.py:139
+#: src/yazdir/app.py:133
 msgid "Most printers can't print the outer ~4 mm"
 msgstr ""
 
-#: src/yazdir/app.py:140
+#: src/yazdir/app.py:134
 msgid "Paper and quality"
 msgstr ""
 
-#: src/yazdir/app.py:141
+#: src/yazdir/app.py:135
 msgid "Paper size"
 msgstr ""
 
-#: src/yazdir/app.py:141
+#: src/yazdir/app.py:135
 msgid "Print quality"
 msgstr ""
 
-#: src/yazdir/app.py:143
+#: src/yazdir/app.py:137
 msgid "Page range (empty = all, e.g. 1-3,5,8-)"
 msgstr ""
 
-#: src/yazdir/app.py:145
+#: src/yazdir/app.py:139
 msgid "Print in reverse order"
 msgstr ""
 
-#: src/yazdir/app.py:145
+#: src/yazdir/app.py:139
 msgid "One-sided printing only"
 msgstr ""
 
-#: src/yazdir/app.py:147
+#: src/yazdir/app.py:141
 msgid "Collate"
 msgstr ""
 
-#: src/yazdir/app.py:147
+#: src/yazdir/app.py:141
 msgid "Print as 1,2,3 – 1,2,3"
 msgstr ""
 
-#: src/yazdir/app.py:148
+#: src/yazdir/app.py:142
 msgid "Pages and copies"
 msgstr ""
 
-#: src/yazdir/app.py:149
+#: src/yazdir/app.py:143
 msgid "Page subset"
 msgstr ""
 
-#: src/yazdir/app.py:151
+#: src/yazdir/app.py:145
 msgid "Border around pages"
 msgstr ""
 
-#: src/yazdir/app.py:152
+#: src/yazdir/app.py:146
 msgid "Custom scale (%)"
 msgstr ""
 
-#: src/yazdir/app.py:153
+#: src/yazdir/app.py:147
 msgid "Layout and scale"
 msgstr ""
 
-#: src/yazdir/app.py:154
+#: src/yazdir/app.py:148
 msgid "Page order"
 msgstr ""
 
-#: src/yazdir/app.py:156
+#: src/yazdir/app.py:150
 msgid "Scale"
 msgstr ""
 
-#: src/yazdir/app.py:156
+#: src/yazdir/app.py:150
 msgid "Applies to one page per sheet"
 msgstr ""
 
-#: src/yazdir/app.py:158
+#: src/yazdir/app.py:152
 msgid "Page rotation"
 msgstr ""
 
-#: src/yazdir/app.py:158
+#: src/yazdir/app.py:152
 msgid "Automatic turns landscape pages to fit the sheet"
 msgstr ""
 
-#: src/yazdir/app.py:160
+#: src/yazdir/app.py:154
 msgid "Images"
 msgstr ""
 
-#: src/yazdir/app.py:161
+#: src/yazdir/app.py:155
 msgid "Quality enhancement"
 msgstr ""
 
-#: src/yazdir/app.py:161
+#: src/yazdir/app.py:155
 msgid "Images only; sharp: 600 DPI black and white for drawings"
 msgstr ""
 
-#: src/yazdir/app.py:163
+#: src/yazdir/app.py:158
+msgid "Calibrate this printer…"
+msgstr ""
+
+#: src/yazdir/app.py:160
 msgid "Reverse order in the second pass"
 msgstr ""
 
-#: src/yazdir/app.py:164
-msgid "Change this if backs land on the wrong sheets"
+#: src/yazdir/app.py:161
+msgid "Set by calibration; change it if backs land on the wrong sheets"
 msgstr ""
 
-#: src/yazdir/app.py:166
+#: src/yazdir/app.py:162
 msgid "Rotate backs 180°"
 msgstr ""
 
-#: src/yazdir/app.py:166
-msgid "Toggle this if backs come out upside down"
+#: src/yazdir/app.py:163
+msgid "Set by calibration; change it if backs come out upside down"
 msgstr ""
 
-#: src/yazdir/app.py:168
-msgid "Extra note (shown in the duplex dialog)"
+#: src/yazdir/app.py:164
+msgid "How you reload the stack (shown every time)"
 msgstr ""
 
-#: src/yazdir/app.py:170
-msgid "Print test pages (2 sheets)"
-msgstr ""
-
-#: src/yazdir/app.py:172
+#: src/yazdir/app.py:165
 msgid "Manual duplex calibration"
 msgstr ""
 
-#: src/yazdir/app.py:173
-msgid "Tuned for your printer; not affected by Reset"
-msgstr ""
-
-#: src/yazdir/app.py:174
+#: src/yazdir/app.py:167
 msgid "Language"
 msgstr ""
 
-#: src/yazdir/app.py:174
+#: src/yazdir/app.py:167
 msgid "Takes effect after restarting the app"
 msgstr ""
 
-#: src/yazdir/app.py:176
+#: src/yazdir/app.py:169
 msgid "Restart Yazdır to change the language."
 msgstr ""
 
-#: src/yazdir/app.py:177
+#: src/yazdir/app.py:170
 msgid "Application"
 msgstr ""
 
-#: src/yazdir/app.py:227
+#: src/yazdir/app.py:226
 #, python-brace-format
 msgid "margin {mm} mm"
 msgstr ""
 
-#: src/yazdir/app.py:228
+#: src/yazdir/app.py:227
 #, python-brace-format
 msgid "pages {range}"
 msgstr ""
 
-#: src/yazdir/app.py:229
+#: src/yazdir/app.py:228
 msgid "reverse order"
 msgstr ""
 
-#: src/yazdir/app.py:230
+#: src/yazdir/app.py:229
 msgid "not collated"
 msgstr ""
 
-#: src/yazdir/app.py:231
+#: src/yazdir/app.py:230
 msgid "border"
 msgstr ""
 
-#: src/yazdir/app.py:242
+#: src/yazdir/app.py:241
 #, python-brace-format
 msgid "Changed: {list}"
 msgstr ""
 
-#: src/yazdir/app.py:242
+#: src/yazdir/app.py:241
 msgid "Default"
 msgstr ""
 
-#: src/yazdir/app.py:269
+#: src/yazdir/app.py:267
 msgid "Settings restored to defaults (duplex calibration kept)."
 msgstr ""
 
-#: src/yazdir/app.py:275
+#: src/yazdir/app.py:273
 msgid "Error"
 msgstr ""
 
-#: src/yazdir/app.py:276
+#: src/yazdir/app.py:274
 msgid "OK"
 msgstr ""
 
-#: src/yazdir/app.py:295
+#: src/yazdir/app.py:293
+#, python-brace-format
+msgid "Calibrated for {printer}"
+msgstr ""
+
+#: src/yazdir/app.py:294
+#, python-brace-format
+msgid "Not calibrated yet for {printer}"
+msgstr ""
+
+#: src/yazdir/app.py:323
 msgid "PDFs and images"
 msgstr ""
 
-#: src/yazdir/app.py:331
+#: src/yazdir/app.py:359
 #, python-brace-format
 msgid "Could not open {name}: {error}"
 msgstr ""
 
-#: src/yazdir/app.py:339
+#: src/yazdir/app.py:367
 msgid "Remove"
 msgstr ""
 
-#: src/yazdir/app.py:363
-msgid "Add a file first."
-msgstr ""
-
-#: src/yazdir/app.py:367
+#: src/yazdir/app.py:383
 msgid "No usable printer."
 msgstr ""
 
-#: src/yazdir/app.py:371
+#: src/yazdir/app.py:392
+msgid "Add a file first."
+msgstr ""
+
+#: src/yazdir/app.py:401
 msgid "Save as PDF"
 msgstr ""
 
-#: src/yazdir/app.py:371
+#: src/yazdir/app.py:401
 msgid "laid-out.pdf"
 msgstr ""
 
-#: src/yazdir/app.py:395
-msgid "↑ TOP ↑"
+#: src/yazdir/app.py:408
+msgid "Calibrate two-sided printing first?"
 msgstr ""
 
-#: src/yazdir/app.py:415
+#: src/yazdir/app.py:409
+msgid "Yazdır needs to learn what your printer does with a reloaded stack. It takes 2 sheets and is done once per printer."
+msgstr ""
+
+#: src/yazdir/app.py:411
+msgid "Print anyway"
+msgstr ""
+
+#: src/yazdir/app.py:412
+msgid "Calibrate"
+msgstr ""
+
+#: src/yazdir/app.py:457
 #, python-brace-format
 msgid "Saved: {name}"
 msgstr ""
 
-#: src/yazdir/app.py:428
+#: src/yazdir/app.py:466
 msgid "Sent to the printer."
 msgstr ""
 
-#: src/yazdir/app.py:435
+#: src/yazdir/app.py:472
 #, python-brace-format
 msgid ""
 "Could not send to the printer:\n"
 "{error}"
 msgstr ""
 
-#: src/yazdir/app.py:445
+#: src/yazdir/app.py:490
+msgid "the same way as during calibration"
+msgstr ""
+
+#: src/yazdir/app.py:492
 #, python-brace-format
 msgid "<b>1.</b> Take <b>all {n} sheets</b> from the output tray without changing their order."
 msgstr ""
 
-#: src/yazdir/app.py:446
-msgid "<b>2.</b> Put them in the front input tray <b>without flipping or rotating</b>: edge <b>B</b> towards the printer, blank sides up."
+#: src/yazdir/app.py:493
+#, python-brace-format
+msgid "<b>2.</b> Put them back into the input tray so the blank sides get printed: <b>{how}</b>."
 msgstr ""
 
-#: src/yazdir/app.py:448
+#: src/yazdir/app.py:494
 msgid "<b>3.</b> Press <b>Continue</b>."
 msgstr ""
 
-#: src/yazdir/app.py:451
+#: src/yazdir/app.py:497
 msgid "The top sheet has an empty back and will pass through blank. Don't remove it; it keeps the other sheets in order."
 msgstr ""
 
-#: src/yazdir/app.py:456
-msgid "Manual duplex"
-msgstr ""
-
-#: src/yazdir/app.py:461
+#: src/yazdir/app.py:500
 #, python-brace-format
 msgid "Printing the fronts ({n} sheets)…"
 msgstr ""
 
-#: src/yazdir/app.py:462
+#: src/yazdir/app.py:501
 msgid "When it finishes you will reload the paper as shown below."
 msgstr ""
 
-#: src/yazdir/app.py:469
+#: src/yazdir/app.py:506 src/yazdir/app.py:592
 msgid "Cancel"
 msgstr ""
 
-#: src/yazdir/app.py:470
+#: src/yazdir/app.py:507
 msgid "Continue"
 msgstr ""
 
-#: src/yazdir/app.py:482
+#: src/yazdir/app.py:508
+msgid "Manual duplex"
+msgstr ""
+
+#: src/yazdir/app.py:511
 msgid "Reload the paper for the backs"
 msgstr ""
 
-#: src/yazdir/app.py:496
+#: src/yazdir/app.py:524
 msgid "Backs sent to the printer."
 msgstr ""
 
-#: src/yazdir/app.py:498
+#: src/yazdir/app.py:526
 msgid "Backs cancelled."
 msgstr ""
 
-#: src/yazdir/engine.py:57
+#: src/yazdir/app.py:567
+msgid "Calibrate two-sided printing"
+msgstr ""
+
+#: src/yazdir/app.py:568
+msgid ""
+"Printers differ in how they stack printed sheets and how a stack is fed back in. Yazdır will print pages <b>1</b> and <b>3</b> on two sheets, you put them back in, it prints pages <b>2</b> and <b>4</b>, and you tell it what you see.\n"
+"\n"
+"Put at least 2 sheets of plain paper in the printer."
+msgstr ""
+
+#: src/yazdir/app.py:572
+msgid "e.g. take the stack as it is and slide it in, top edge first"
+msgstr ""
+
+#: src/yazdir/app.py:573
+msgid "Printing pages 1 and 3…"
+msgstr ""
+
+#: src/yazdir/app.py:574
+msgid "Put the two sheets back"
+msgstr ""
+
+#: src/yazdir/app.py:575
+msgid ""
+"When both sheets are out, put them back into the input tray <b>so that the blank sides will be printed</b>. Do whatever is easiest on your printer, keep the two sheets in the order they came out, and remember the move: you'll repeat it every time.\n"
+"\n"
+"Describe it in a few words (optional, shown every time):"
+msgstr ""
+
+#: src/yazdir/app.py:583
+msgid "Printing pages 2 and 4…"
+msgstr ""
+
+#: src/yazdir/app.py:584
+msgid "What is on the back of page 1?"
+msgstr ""
+
+#: src/yazdir/app.py:585
+msgid "Take the sheet with <b>1</b> and turn it over <b>like a book page</b> (sideways). Which page do you see, and is its <b>TOP</b> mark at the top?"
+msgstr ""
+
+#: src/yazdir/app.py:588
+msgid "The sheets went in the wrong way"
+msgstr ""
+
+#: src/yazdir/app.py:589
+msgid "The backs were printed over the fronts or not at all, so the blank sides weren't facing the print side. Turn the stack over (or around) next time and calibrate again."
+msgstr ""
+
+#: src/yazdir/app.py:593
+msgid "Print pages 1 and 3"
+msgstr ""
+
+#: src/yazdir/app.py:594
+msgid "Calibration"
+msgstr ""
+
+#: src/yazdir/app.py:610
+#, python-brace-format
+msgid "Calibration saved for {printer}."
+msgstr ""
+
+#: src/yazdir/app.py:613
+msgid "2, right way up"
+msgstr ""
+
+#: src/yazdir/app.py:613
+msgid "2, upside down"
+msgstr ""
+
+#: src/yazdir/app.py:614
+msgid "4, right way up"
+msgstr ""
+
+#: src/yazdir/app.py:614
+msgid "4, upside down"
+msgstr ""
+
+#: src/yazdir/app.py:619
+msgid "Something else (printed over the front, or nothing)"
+msgstr ""
+
+#: src/yazdir/app.py:624
+msgid "Done. Reload the sheets, then continue."
+msgstr ""
+
+#: src/yazdir/app.py:646
+msgid "Print pages 2 and 4"
+msgstr ""
+
+#: src/yazdir/app.py:653
+msgid "TOP"
+msgstr ""
+
+#: src/yazdir/engine.py:62
 #, python-brace-format
 msgid ""
 "{tool} failed:\n"
 "{output}"
 msgstr ""
 
-#: src/yazdir/engine.py:67
+#: src/yazdir/engine.py:102
 #, python-brace-format
 msgid ""
 "Real-ESRGAN not found: {path}\n"
 "Run ./install.sh --with-ai"
 msgstr ""
 
-#: src/yazdir/engine.py:68
+#: src/yazdir/engine.py:103
 #, python-brace-format
 msgid "AI upscaling: {name}"
 msgstr ""
 
-#: src/yazdir/engine.py:75
+#: src/yazdir/engine.py:111
 #, python-brace-format
 msgid "Converting to 600 DPI black and white: {name}"
 msgstr ""
 
-#: src/yazdir/engine.py:117
+#: src/yazdir/engine.py:146
 #, python-brace-format
 msgid "Invalid page range: “{part}”"
 msgstr ""
 
-#: src/yazdir/engine.py:119
+#: src/yazdir/engine.py:148
 #, python-brace-format
 msgid "Out of range: “{part}” (document has {n} pages)"
 msgstr ""
 
-#: src/yazdir/engine.py:212
+#: src/yazdir/engine.py:241
 msgid "No pages left in the selection."
 msgstr ""

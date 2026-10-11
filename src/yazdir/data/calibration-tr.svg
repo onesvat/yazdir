@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="170" viewBox="0 0 560 170" font-family="Cantarell, sans-serif">
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3584e4"/>
+    </marker>
+  </defs>
+  <rect width="560" height="170" rx="12" fill="#ffffff"/>
+  <!-- front -->
+  <rect x="120" y="14" width="100" height="140" rx="4" fill="#ffffff" stroke="#77767b" stroke-width="1.5"/>
+  <text x="170" y="34" font-size="11" font-weight="bold" fill="#3d3d3d" text-anchor="middle">↑ ÜST ↑</text>
+  <text x="170" y="110" font-size="64" font-weight="bold" fill="#3d3d3d" text-anchor="middle">1</text>
+  <!-- book-style turn -->
+  <path d="M232 70 C 260 40, 300 40, 328 70" fill="none" stroke="#3584e4" stroke-width="4" marker-end="url(#ok)"/>
+  <text x="280" y="100" font-size="13" font-weight="bold" fill="#3584e4" text-anchor="middle">kitap sayfası gibi</text>
+  <!-- back -->
+  <rect x="340" y="14" width="100" height="140" rx="4" fill="#ffffff" stroke="#77767b" stroke-width="1.5"/>
+  <text x="390" y="34" font-size="11" font-weight="bold" fill="#c0bfbc" text-anchor="middle">↑ ÜST ↑ ?</text>
+  <text x="390" y="110" font-size="64" font-weight="bold" fill="#c0bfbc" text-anchor="middle">?</text>
+</svg>

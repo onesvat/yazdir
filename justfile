@@ -35,3 +35,18 @@ pot:
 # Re-render the README screenshots
 screenshots:
     for l in en tr; do YAZDIR_LANG=$l .venv/bin/python tools/screenshots.py docs/screenshots/$l; done
+
+# Build and install the Flatpak for the current user (needs org.flatpak.Builder and org.gnome.Sdk//51)
+flatpak:
+    flatpak run org.flatpak.Builder --user --install --force-clean --install-deps-from=flathub build-dir build-aux/flatpak/io.github.onesvat.Yazdir.yml
+
+# Run Flathub's linter on the manifest and the built repo
+flatpak-lint:
+    flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest build-aux/flatpak/io.github.onesvat.Yazdir.yml
+    flatpak build-export repo build-dir
+    flatpak run --command=flatpak-builder-lint org.flatpak.Builder repo repo
+
+# Validate the desktop entry and AppStream metadata
+validate:
+    desktop-file-validate data/io.github.onesvat.Yazdir.desktop
+    appstreamcli validate --no-net data/io.github.onesvat.Yazdir.metainfo.xml

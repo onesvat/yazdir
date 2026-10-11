@@ -99,7 +99,7 @@ def _cm_rotations(side):
 
 
 @pytest.mark.parametrize("flip,nup,cal,expect_back_turned", [
-    ("book", 1, True, True),  # portrait book flip on a C-path printer: backs turned
+    ("book", 1, True, True),  # printer starts the back from the opposite edge: backs turned
     ("book", 1, False, False),
     ("calendar", 1, True, False),
     ("calendar", 1, False, True),
@@ -124,3 +124,34 @@ def test_split_passes_without_reverse(tmp_path):
     doc = engine.write_pdf(sides, tmp_path / "doc.pdf")
     _front, back, _ = engine.split_passes(doc, copies=1, reverse=False, tmp=tmp_path)
     assert [markers(p) for p in PdfReader(str(back)).pages] == [[2], [4]]
+
+
+def test_test_document_has_four_numbered_pages(tmp_path):
+    doc = engine.test_document(tmp_path, "ÜST")
+    pages = PdfReader(str(doc)).pages
+    assert len(pages) == 4
+    for i, p in enumerate(pages, start=1):
+        data = p.get_contents().get_data()
+        assert f"({i}) Tj".encode() in data
+        assert b"(\xdcST) Tj" in data  # WinAnsi-encoded label
+
+
+def test_sharpen_keeps_aspect_and_is_bilevel():
+    from PIL import Image
+    im = Image.new("RGB", (1000, 1500), "white")
+    out = engine.sharpen_bw(im, ai=False)
+    assert out.mode == "1"
+    assert out.height == engine.SHARP_BOX[1]
+    assert abs(out.width / out.height - 1000 / 1500) < 0.01
+    wide = engine.sharpen_bw(Image.new("L", (3000, 1000), 0), ai=True)
+    assert wide.width == engine.SHARP_BOX[1] and wide.getextrema() == (0, 0)
+
+
+def test_image_to_pdf(tmp_path):
+    from PIL import Image
+    src = tmp_path / "a.png"
+    Image.new("RGBA", (300, 200), (0, 0, 0, 0)).save(src)
+    for enhance in ("none", "sharp"):
+        pdf = engine.image_to_pdf(src, enhance, tmp_path, log=lambda m: None)
+        page = PdfReader(str(pdf)).pages[0]
+        assert float(page.mediabox.width) > float(page.mediabox.height)

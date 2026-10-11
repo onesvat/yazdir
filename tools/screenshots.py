@@ -15,13 +15,23 @@ ROOT = Path(__file__).resolve().parents[1]
 os.environ["XDG_CONFIG_HOME"] = tempfile.mkdtemp()
 sys.path.insert(0, str(ROOT / "src"))
 
+import gi  # noqa: E402
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("Graphene", "1.0")
 from gi.repository import GLib, Graphene, Gtk  # noqa: E402
 
-from yazdir import app  # noqa: E402
+from yazdir import app, printing  # noqa: E402
 
 OUT = Path(sys.argv[1])
 OUT.mkdir(parents=True, exist_ok=True)
 EXAMPLES = ROOT / "examples" / ("tr" if app.LANGUAGE == "tr" else "en")
+PRINTER = "Office-Laser"
+
+queue = {"busy": True}
+printing.printers = lambda: ([PRINTER], PRINTER)
+printing.submit = lambda *a, **k: "1"
+printing.job_pending = lambda job: queue["busy"]
 
 
 def shot(window, name):
@@ -39,16 +49,30 @@ def select(win, key, value):
     row.set_selected(keys.index(value))
 
 
+def click(widget, label):
+    """Click the first button under widget whose label matches."""
+    stack = [widget]
+    while stack:
+        w = stack.pop()
+        if isinstance(w, Gtk.Button) and w.get_label() == label and w.get_mapped():
+            w.emit("clicked")
+            return
+        child = w.get_first_child()
+        while child:
+            stack.append(child)
+            child = child.get_next_sibling()
+    raise LookupError(label)
+
+
 def main(application):
+    tr = app._
     win = app.Window(application)
     win.set_default_size(620, 1180)
-    win.lp = lambda *a, **k: "printer-1"
-    pending = {"n": 0}
-    app.job_pending = lambda job: pending["n"] < 1
+    win.calibrations[PRINTER] = {"reverse": True, "rotate180": False, "note": ""}
+    win.load_calibration()
     win.add_files([str(EXAMPLES / "3-pocket-planner-booklet.pdf"), str(EXAMPLES / "1-weekly-planner.pdf")])
     select(win, "mode", "duplex")
     win.present()
-
     steps = []
 
     def step(fn):
@@ -63,19 +87,22 @@ def main(application):
         select(win, "nup", 4)
         win.border.set_active(True)
         win.sections[2][0].set_expanded(True)
-        win.sections[2][0].grab_focus()
+        win.cal_section.set_expanded(True)
 
     @step
     def advanced_shot():
         shot(win, "advanced.png")
         win.sections[2][0].set_expanded(False)
-        win.get_content().get_child().get_content().scroll_to_top()
+        win.cal_section.set_expanded(False)
+        select(win, "nup", 1)
+        win.border.set_active(False)
+        queue["busy"] = True
         win.manual_duplex(win.options(), None, None, 3, True)
 
     @step
     def printing_fronts():
         shot(win, "duplex-printing.png")
-        pending["n"] = 1
+        queue["busy"] = False
 
     @step
     def wait():
@@ -84,13 +111,44 @@ def main(application):
     @step
     def reload_paper():
         shot(win, "duplex-reload.png")
+        click(win, tr("Cancel"))
+        win.toasts.dismiss_all()
+        queue["busy"] = True
+        win.calibrate()
+
+    @step
+    def calibration_intro():
+        shot(win, "calibration-1.png")
+        click(win, tr("Print pages 1 and 3"))
+
+    @step
+    def wait_layout():
+        queue["busy"] = False
+
+    @step
+    def calibration_reload():
+        shot(win, "calibration-2.png")
+        queue["busy"] = True
+        click(win, tr("Print pages 2 and 4"))
+
+    @step
+    def backs_done():
+        queue["busy"] = False
+
+    @step
+    def wait_backs():
+        pass
+
+    @step
+    def calibration_result():
+        shot(win, "calibration-3.png")
         application.quit()
 
     def tick():
         steps.pop(0)()
         return bool(steps)
 
-    GLib.timeout_add(900, tick)
+    GLib.timeout_add(1100, tick)
 
 
 class ScreenshotApp(app.Application):

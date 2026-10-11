@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Yazdır
+GenericName=Print Helper
+GenericName[tr]=Yazdırma Yardımcısı
+Comment=Booklets, N-up and guided two-sided printing for any printer
+Comment[tr]=Her yazıcı için kitapçık, kâğıt başına N sayfa ve rehberli arkalı önlü baskı
+Exec=yazdir %F
+Icon=io.github.onesvat.Yazdir
+Terminal=false
+Categories=Office;
+Keywords=print;printer;duplex;two-sided;booklet;n-up;manual duplex;
+Keywords[tr]=yazdır;yazıcı;arkalı önlü;çift taraflı;kitapçık;baskı;
+MimeType=application/pdf;image/png;image/jpeg;image/webp;image/tiff;
+StartupNotify=true

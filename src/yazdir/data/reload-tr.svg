@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="240" viewBox="0 0 640 240" font-family="Cantarell, sans-serif">
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3584e4"/>
+    </marker>
+  </defs>
+  <rect width="640" height="240" rx="12" fill="#ffffff"/>
+
+  <!-- printed stack in the output tray -->
+  <text x="130" y="30" font-size="15" font-weight="bold" fill="#3d3d3d" text-anchor="middle">1. Basılan desteyi alın</text>
+  <path d="M40 150 L220 150 L230 170 L30 170 Z" fill="#deddda" stroke="#77767b" stroke-width="1.5"/>
+  <g stroke="#77767b" stroke-width="1.2">
+    <rect x="66" y="74" width="130" height="68" rx="3" fill="#ffffff" transform="rotate(-3 131 108)"/>
+    <rect x="62" y="78" width="130" height="68" rx="3" fill="#ffffff"/>
+  </g>
+  <g fill="#c0bfbc"><rect x="76" y="92" width="80" height="6" rx="3"/><rect x="76" y="104" width="100" height="5" rx="2.5"/>
+    <rect x="76" y="115" width="92" height="5" rx="2.5"/><rect x="76" y="126" width="60" height="5" rx="2.5"/></g>
+  <text x="130" y="196" font-size="13" fill="#5e5c64" text-anchor="middle">sırasını bozmayın</text>
+
+  <!-- arrow -->
+  <path d="M250 110 C 290 70, 350 70, 390 110" fill="none" stroke="#3584e4" stroke-width="4" marker-end="url(#ok)"/>
+  <text x="320" y="135" font-size="13" font-weight="bold" fill="#3584e4" text-anchor="middle">kalibrasyondaki hareketin aynısı</text>
+
+  <!-- input tray -->
+  <text x="510" y="30" font-size="15" font-weight="bold" fill="#3d3d3d" text-anchor="middle">2. Besleme tepsisine geri</text>
+  <rect x="440" y="56" width="140" height="70" rx="10" fill="#f6f5f4" stroke="#77767b" stroke-width="1.5"/>
+  <rect x="460" y="70" width="100" height="8" rx="4" fill="#5e5c64"/>
+  <path d="M440 126 L580 126 L610 170 L410 170 Z" fill="#deddda" stroke="#77767b" stroke-width="1.5"/>
+  <path d="M452 160 L568 160 L588 132 L472 132 Z" fill="#ffffff" stroke="#77767b" stroke-width="1.2"/>
+  <text x="510" y="196" font-size="13" fill="#5e5c64" text-anchor="middle">boş yüzler basılacak</text>
+
+  <text x="320" y="226" font-size="13" fill="#77767b" text-anchor="middle">Kâğıdı nasıl geri koyduğunuz kalibrasyonda öğrenildi.</text>
+</svg>

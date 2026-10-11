@@ -1,12 +1,12 @@
 [project]
 name = "yazdir"
-version = "1.0.0"
-description = "N-up, booklet and guided manual duplex printing for printers without a duplex unit (GTK 4)"
+version = "1.1.0"
+description = "Booklets, N-up and guided two-sided printing for any printer without automatic duplex (GTK 4)"
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Onur Neşvat" }]
 requires-python = ">=3.10"
-dependencies = ["pypdf>=4"]
+dependencies = ["pypdf>=4", "pillow>=10"]
 keywords = ["printing", "duplex", "booklet", "n-up", "cups", "gtk4", "libadwaita"]
 classifiers = [
     "Environment :: X11 Applications :: GTK",
@@ -16,6 +16,9 @@ classifiers = [
     "Natural Language :: English",
     "Natural Language :: Turkish",
 ]
+
+[project.optional-dependencies]
+cups = ["pycups>=2"]
 
 [project.urls]
 Homepage = "https://github.com/onesvat/yazdir"

@@ -9,20 +9,23 @@ from __future__ import annotations
 
 import hashlib
 import math
+import os
 import re
 import subprocess
 import tempfile
 from pathlib import Path
 
+from PIL import Image, ImageFilter, ImageOps
 from pypdf import PageObject, PdfReader, PdfWriter, Transformation
-from pypdf.generic import DecodedStreamObject, NameObject
+from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject
 
 from .i18n import _
 
 MM = 72 / 25.4
 PAPERS = {"A4": (210, 297), "A5": (148, 210), "Letter": (215.9, 279.4), "Legal": (215.9, 355.6)}
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".bmp", ".tif", ".tiff", ".gif"}
-ESRGAN = Path.home() / ".local/share/yazdir/realesrgan/realesrgan-ncnn-vulkan"
+DATA_HOME = Path(os.environ.get("XDG_DATA_HOME") or Path.home() / ".local/share")
+ESRGAN = DATA_HOME / "yazdir/realesrgan/realesrgan-ncnn-vulkan"
 
 DEFAULTS = {
     "paper": "A4",
@@ -42,13 +45,15 @@ DEFAULTS = {
     "rotate": "auto",  # auto | none | 90
     "margin_mm": 5.0,
     "enhance": "none",  # none | sharp | ai
-    # Manual duplex calibration. Defaults suit C-path printers such as the
-    # HP LaserJet 1018/1020/P1102: output face down, re-fed without flipping.
-    "cal_reverse": True,  # feed backs in reverse order (last printed sheet is fed first)
-    "cal_rotate180": True,  # rotate backs 180° (the back is printed from the opposite edge)
-    "cal_note": "",
+    # Manual duplex calibration of the selected printer (set by the calibration wizard):
+    "cal_reverse": True,  # feed the backs in reverse order: the last printed sheet is fed first
+    "cal_rotate180": False,  # turn backs 180°: the printer prints the back from the opposite edge
+    "cal_note": "",  # the user's own words for how they reload the stack
     "language": "system",  # system | en | tr; not affected by Reset
 }
+
+# A4 portrait at 600 DPI minus 5 mm margins; images are fitted into this box when sharpened.
+SHARP_BOX = (4720, 6776)
 
 
 def run(cmd, **kw):
@@ -58,31 +63,55 @@ def run(cmd, **kw):
     return result.stdout
 
 
+def ai_available() -> bool:
+    return ESRGAN.is_file() and os.access(ESRGAN, os.X_OK)
+
+
+def _flatten(im: Image.Image) -> Image.Image:
+    """First frame, alpha composited onto white, in RGB or L."""
+    im = ImageOps.exif_transpose(im)
+    if im.mode in ("RGBA", "LA", "P", "PA"):
+        im = im.convert("RGBA")
+        bg = Image.new("RGBA", im.size, "white")
+        im = Image.alpha_composite(bg, im).convert("RGB")
+    elif im.mode not in ("RGB", "L"):
+        im = im.convert("RGB")
+    return im
+
+
+def sharpen_bw(im: Image.Image, ai: bool) -> Image.Image:
+    """Fit into SHARP_BOX with Lanczos, smooth the edges, then threshold to pure black and white."""
+    gray = im.convert("L")
+    bw, bh = SHARP_BOX if gray.width <= gray.height else SHARP_BOX[::-1]
+    s = min(bw / gray.width, bh / gray.height)
+    gray = gray.resize((max(1, round(gray.width * s)), max(1, round(gray.height * s))), Image.Resampling.LANCZOS)
+    # AI output is already clean: light blur, threshold at 55 %. Plain images: stronger blur and a
+    # 10–90 % level stretch before a 58 % threshold, which equals a single cut at ~56 %.
+    radius, cut = (0.8, 0.55) if ai else (2.0, 0.564)
+    gray = gray.filter(ImageFilter.GaussianBlur(radius))
+    return gray.point(lambda v: 255 if v > cut * 255 else 0).convert("1", dither=Image.Dither.NONE)
+
+
 def image_to_pdf(src: Path, enhance: str, tmp: Path, log=print) -> Path:
     """Convert an image to a one-page PDF, optionally as crisp 600 DPI black and white."""
     out = Path(tempfile.mkstemp(suffix=".pdf", dir=tmp)[1])
-    image = src
+    with Image.open(src) as opened:
+        im = _flatten(opened)
     if enhance == "ai":
-        if not ESRGAN.exists():
+        if not ai_available():
             raise RuntimeError(_("Real-ESRGAN not found: {path}\nRun ./install.sh --with-ai").format(path=ESRGAN))
         log(_("AI upscaling: {name}").format(name=src.name))
         flat, big = out.with_suffix(".in.png"), out.with_suffix(".up.png")
-        run(["magick", str(src), "-background", "white", "-alpha", "remove", str(flat)])
+        im.convert("RGB").save(flat)
         run([str(ESRGAN), "-i", str(flat), "-o", str(big), "-n", "realesrgan-x4plus-anime",
              "-m", str(ESRGAN.parent / "models")], cwd=ESRGAN.parent)
-        image = big
+        with Image.open(big) as up:
+            im = _flatten(up)
     if enhance in ("sharp", "ai"):
         log(_("Converting to 600 DPI black and white: {name}").format(name=src.name))
-        w, h = run(["magick", "identify", "-format", "%w %h", f"{image}[0]"]).split()
-        box = "6776x4720" if int(w) > int(h) else "4720x6776"
-        tune = ["-blur", "0x0.8", "-threshold", "55%"] if enhance == "ai" else \
-               ["-blur", "0x2", "-level", "10%,90%", "-threshold", "58%"]
-        run(["magick", f"{image}[0]", "-background", "white", "-alpha", "remove", "-colorspace", "Gray",
-             "-filter", "Lanczos", "-resize", box, *tune, "-type", "bilevel", "-compress", "Group4",
-             "-units", "PixelsPerInch", "-density", "600", str(out)])
+        sharpen_bw(im, enhance == "ai").save(out, "PDF", resolution=600)
     else:
-        run(["magick", f"{image}[0]", "-background", "white", "-alpha", "remove",
-             "-units", "PixelsPerInch", "-density", "300", str(out)])
+        im.save(out, "PDF", resolution=300)
     return out
 
 
@@ -139,7 +168,7 @@ def choose_grid(n, pw, ph, sw, sh):
 def _stream_page(W, H, ops):
     page = PageObject.create_blank_page(width=W, height=H)
     stream = DecodedStreamObject()
-    stream.set_data(ops.encode())
+    stream.set_data(ops.encode("latin-1"))
     page[NameObject("/Contents")] = stream
     return page
 
@@ -276,16 +305,45 @@ def split_passes(doc: Path, copies: int, reverse: bool, tmp: Path):
     return paths[0], paths[1], len(fronts)
 
 
-def test_document(tmp: Path, top_label: str = "↑ TOP ↑") -> Path:
-    """Four numbered pages for checking the manual duplex calibration."""
+# Helvetica-Bold advance widths (1/1000 em) for the characters used on the test pages.
+_HELV_BOLD = {**dict.fromkeys("0123456789", 556), "T": 611, "O": 778, "P": 667, "U": 722, "Ü": 722, "S": 667,
+              "A": 722, "E": 667, "R": 722, "N": 722, "H": 722, "I": 278, "Ç": 722, "Ö": 778, "Ğ": 778, " ": 278}
+
+
+def _text_width(text, size):
+    return sum(_HELV_BOLD.get(c, 667) for c in text) * size / 1000
+
+
+def _pdf_string(text):
+    raw = text.encode("cp1252", errors="replace")
+    return "(" + raw.replace(b"\\", b"\\\\").replace(b"(", b"\\(").replace(b")", b"\\)").decode("latin-1") + ")"
+
+
+def _test_page(number, top_label):
+    W, H = PAPERS["A4"][0] * MM, PAPERS["A4"][1] * MM
+    big, small = 380, 30
+    label_w = _text_width(top_label, small)
+    lx, ly = (W - label_w) / 2, H - 70
+    arrow = lambda x: f"{x:.1f} {ly + 22:.1f} m {x - 9:.1f} {ly + 8:.1f} l {x - 3:.1f} {ly + 8:.1f} l {x - 3:.1f} {ly - 6:.1f} l " \
+                      f"{x + 3:.1f} {ly - 6:.1f} l {x + 3:.1f} {ly + 8:.1f} l {x + 9:.1f} {ly + 8:.1f} l h f"  # noqa: E731
+    ops = " ".join([
+        "0 g",
+        arrow(lx - 22), arrow(lx + label_w + 22),
+        f"BT /F1 {small} Tf {lx:.1f} {ly:.1f} Td {_pdf_string(top_label)} Tj ET",
+        f"BT /F1 {big} Tf {(W - _text_width(str(number), big)) / 2:.1f} {H / 2 - big * 0.36:.1f} Td ({number}) Tj ET",
+        f"1.5 w 0.6 G 28 28 {W - 56:.1f} {H - 56:.1f} re S",
+    ])
+    page = _stream_page(W, H, ops)
+    font = DictionaryObject({NameObject("/Type"): NameObject("/Font"), NameObject("/Subtype"): NameObject("/Type1"),
+                             NameObject("/BaseFont"): NameObject("/Helvetica-Bold"),
+                             NameObject("/Encoding"): NameObject("/WinAnsiEncoding")})
+    page[NameObject("/Resources")] = DictionaryObject({NameObject("/Font"): DictionaryObject({NameObject("/F1"): font})})
+    return page
+
+
+def test_document(tmp: Path, top_label: str = "TOP") -> Path:
+    """Four numbered A4 pages with a TOP marker, for calibrating manual duplex on 2 sheets."""
     path = tmp / f"duplex-test-{hashlib.sha1(top_label.encode()).hexdigest()[:8]}.pdf"
     if not path.exists():
-        images = []
-        for i in range(1, 5):
-            img = tmp / f"test{i}.png"
-            run(["magick", "-size", "1240x1754", "xc:white", "-gravity", "center", "-pointsize", "500",
-                 "-annotate", "+0+0", str(i), "-gravity", "north", "-pointsize", "80",
-                 "-annotate", "+0+80", top_label, str(img)])
-            images.append(str(img))
-        run(["magick", *images, "-units", "PixelsPerInch", "-density", "150", str(path)])
+        write_pdf([_test_page(i, top_label) for i in range(1, 5)], path)
     return path

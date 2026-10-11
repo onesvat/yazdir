@@ -54,18 +54,19 @@ PY
   return 1
 }
 missing=()
-command -v lp >/dev/null || missing+=("cups-client (lp)")
 PY_BIN="$(find_python)" || missing+=("GTK 4 + libadwaita (>= 1.6) Python bindings")
 if ((${#missing[@]})); then
   echo "Missing: ${missing[*]}" >&2
   cat >&2 <<'HINT'
-Fedora:        sudo dnf install python3-gobject gtk4 libadwaita cups-client ImageMagick
-Debian/Ubuntu: sudo apt install python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 cups-client imagemagick
-Arch:          sudo pacman -S python-gobject gtk4 libadwaita cups imagemagick
+Fedora:        sudo dnf install python3-gobject gtk4 libadwaita python3-cups
+Debian/Ubuntu: sudo apt install python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 python3-cups
+Arch:          sudo pacman -S python-gobject gtk4 libadwaita python-pycups
 HINT
   exit 1
 fi
-command -v magick >/dev/null || warn "ImageMagick 7 (magick) not found: printing images will not work, PDFs will."
+if ! "$PY_BIN" -c "import cups" 2>/dev/null && ! command -v lp >/dev/null; then
+  warn "Neither pycups (python3-cups) nor the lp command was found: Yazdır can lay out and save PDFs but not print."
+fi
 
 say "Creating environment in $LIB/venv (using $PY_BIN)"
 mkdir -p "$LIB" "$BIN"
@@ -81,7 +82,7 @@ ln -sf "$LIB/venv/bin/yazdir" "$BIN/yazdir"
 say "Adding menu entry, icon and file manager action"
 install -Dm644 "$REPO/data/$APP_ID.svg" "$DATA/icons/hicolor/scalable/apps/$APP_ID.svg"
 mkdir -p "$DATA/applications"
-sed "s|@BIN@|$BIN/yazdir|" "$REPO/data/$APP_ID.desktop.in" > "$DATA/applications/$APP_ID.desktop"
+sed "s|^Exec=yazdir|Exec=$BIN/yazdir|" "$REPO/data/$APP_ID.desktop" > "$DATA/applications/$APP_ID.desktop"
 mkdir -p "$DATA/nautilus/scripts"
 cat > "$DATA/nautilus/scripts/Yazdır…" <<SCRIPT
 #!/usr/bin/env bash

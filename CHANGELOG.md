@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0 — 2026-10-11
+
+Works with any printer that can't print on both sides by itself.
+
+- New calibration wizard: two sheets, one question ("what is on the back of page 1?"), and Yazdır knows how your
+  printer stacks and feeds paper. Calibration is stored per printer and offered before the first two-sided job.
+- Generic reload instructions, plus your own short note on how you put the stack back.
+- Printing goes through pycups when available (and always inside Flatpak), with `lp` as a fallback.
+- Images are converted with Pillow; ImageMagick is no longer needed. Test pages are generated as native PDF.
+- Flatpak manifest, AppStream metadata and a validated desktop entry, ready for Flathub.
+- Removed the printer-specific documentation.
+
 ## 1.0.0 — 2026-10-11
 
 First public release.
